@@ -1,0 +1,12 @@
+# Impede o acesso direto ao arquivo de dados cadastrados pelo navegador
+<IfModule mod_authz_core.c>
+    <Files "cadastros.txt">
+        Require all denied
+    </Files>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <Files "cadastros.txt">
+        Order allow,deny
+        Deny from all
+    </Files>
+</IfModule>
